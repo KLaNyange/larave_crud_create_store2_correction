@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MemberController::class, 'index']);
+Route::get('/form', [MemberController::class, 'create'])->name('form');
+Route::post('/store', [MemberController::class, 'store']);
